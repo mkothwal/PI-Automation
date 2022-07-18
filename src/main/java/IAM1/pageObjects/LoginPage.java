@@ -1,4 +1,4 @@
-package IAM1.objects;
+package IAM1.pageObjects;
 
 import IAM1.resources.BasePage;
 import org.openqa.selenium.WebDriver;

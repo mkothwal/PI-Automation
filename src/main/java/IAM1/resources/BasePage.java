@@ -1,4 +1,4 @@
-package IAM1.objects.resources;
+package IAM1.resources;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +15,7 @@ public class BasePage {
 
     public String getStringFromPropertiesFile(String propertyValue) throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("C:\\Dev\\Automation\\ELM\\PI-Automation\\src\\main\\java\\IAM1\\data.properties");
+        FileInputStream fis = new FileInputStream("C:\\Dev\\Automation\\ELM\\PI-Automation\\src\\main\\java\\IAM1\\resources\\data.properties");
         prop.load(fis);
         propertyValue = prop.getProperty(propertyValue);
         return propertyValue;
