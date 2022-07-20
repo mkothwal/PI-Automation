@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="All Test Suite" duration-ms="7471" started-at="2022-07-20T11:44:53 AST" finished-at="2022-07-20T11:45:00 AST">
+    <groups>
+    </groups>
+    <test name="C:/Dev/Automation/ELM/PI-Automation" duration-ms="7471" started-at="2022-07-20T11:44:53 AST" finished-at="2022-07-20T11:45:00 AST">
+      <class name="IAM1.Tests.DashboardTest">
+        <test-method status="PASS" signature="navigateToLoginPage()[pri:0, instance:IAM1.Tests.DashboardTest@3cef309d]" name="navigateToLoginPage" is-config="true" duration-ms="6215" started-at="2022-07-20T11:44:53 AST" finished-at="2022-07-20T11:44:59 AST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToLoginPage -->
+        <test-method status="PASS" signature="closeBrowsers()[pri:0, instance:IAM1.Tests.DashboardTest@3cef309d]" name="closeBrowsers" is-config="true" duration-ms="1250" started-at="2022-07-20T11:44:59 AST" finished-at="2022-07-20T11:45:00 AST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowsers -->
+      </class> <!-- IAM1.Tests.DashboardTest -->
+    </test> <!-- C:/Dev/Automation/ELM/PI-Automation -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
