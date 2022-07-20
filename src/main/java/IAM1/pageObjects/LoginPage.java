@@ -1,6 +1,7 @@
 package IAM1.pageObjects;
 
 import IAM1.resources.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.io.FileNotFoundException;
 
 public class LoginPage extends BasePage {
-    WebDriver driver;
+    public WebDriver driver;
 
 
     public LoginPage(WebDriver driver) throws FileNotFoundException {
@@ -16,11 +17,17 @@ public class LoginPage extends BasePage {
         this.driver = driver;
     }
 
-    @FindBy (xpath="/html/body/div[1]/div/main/div/div/div/div/div[3]/form/div[1]/div/div[1]/div[2]/input")
-    WebElement inputUsername;
+    By getInputUsername = By.xpath("//input[@id='input-46']");
 
-    @FindBy (xpath="/html/body/div[1]/div/main/div/div/div/div/div[3]/form/div[2]/div/div[1]/div[2]/input")
-    WebElement inputPassword;
+    By getInputPassword = By.xpath("//input[@id='input-50']");
+
+    By getLoginButton = By.xpath("//span[@class='v-btn__content']");
+
+/*    @FindBy (xpath="//input[@id='input-46']")
+    WebElement inputUsername;*/
+
+/*    @FindBy (xpath="//input[@id='input-50']")
+    WebElement inputPassword;*/
 
     @FindBy (xpath="//*[@id='app']/div/main/div/div/div/div/div[3]/form/div[3]/div/div/div/div/div")
     WebElement rememberMeCheckbox;
@@ -34,10 +41,10 @@ public class LoginPage extends BasePage {
     @FindBy (xpath="//*[@id='app']/div/main/div/div/div/div/div[4]/a")
     WebElement createAnAccountLinkText;
 
-    @FindBy (xpath="//*[@id='app']/div/main/div/div/div/div/div[3]/form/button/span")
+    @FindBy (xpath="//span[@class='v-btn__content']")
     WebElement loginButton;
 
-    @FindBy (xpath="//*[@id='app']/div/main/div/div/div/div/div[1]/a/div/div[3]")
+    @FindBy (xpath="//div[@class='v-responsive__content']")
     WebElement elmLogo;
 
     @FindBy (xpath = "//*[@id='error-information-popup-content']/div[2]")
@@ -69,12 +76,23 @@ public class LoginPage extends BasePage {
         return rememberMeCheckbox;
     }
 
-    public WebElement inputPassword() {
+/*    public WebElement inputPassword() {
         return inputPassword;
+    }*/
+
+/*    public WebElement inputUsername() {
+        return inputUsername;*/
+
+    public WebElement setInputUsername(){
+        return driver.findElement(getInputUsername);
     }
 
-    public WebElement inputUsername() {
-        return inputUsername;
+    public WebElement setInputPassword(){
+        return driver.findElement(getInputPassword);
+    }
+
+    public WebElement setLoginButton(){
+        return driver.findElement(getLoginButton);
     }
 
 }

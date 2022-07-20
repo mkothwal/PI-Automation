@@ -1,0 +1,5 @@
+IAM1\resources\BasePage.class
+IAM1\Tests\LoginTest.class
+IAM1\pageObjects\DashboardPage.class
+IAM1\pageObjects\LoginPage.class
+IAM1\Tests\DashboardTest.class
