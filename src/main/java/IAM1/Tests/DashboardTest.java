@@ -17,14 +17,14 @@ public class DashboardTest extends BasePage {
             System.out.println("False executed");
         }
         String CurrentUrl = driver.getCurrentUrl();
-        System.out.println((CurrentUrl+" "+driver));
+        //System.out.println((CurrentUrl+" "+driver));
         if (driver.getCurrentUrl().equals(iamLoginPageUrl) || (driver.getCurrentUrl().equals("data:,")) ) {
-            System.out.println("URL Matches");
+            //System.out.println("URL Matches");
             LoginTest.Login();
             System.out.println("Logged in Successfully");
         }
         int windowHandles = getWindowHandlesNumber();
-        System.out.println(windowHandles);
+        //System.out.println(windowHandles);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class DashboardTest extends BasePage {
     @AfterTest
     public void closeBrowsers() {
         if(true)
-        System.out.println(driver + " in Dashboard closeBrowser");
+        //System.out.println(driver + " in Dashboard closeBrowser");
         driver.close();
     }
 }
