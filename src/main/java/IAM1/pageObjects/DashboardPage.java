@@ -4,12 +4,12 @@ import IAM1.resources.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import java.io.FileNotFoundException;
 
 public class DashboardPage extends BasePage {
     WebDriver driver;
+
 
     public DashboardPage(WebDriver driver) throws FileNotFoundException {
         // super(driver);
@@ -75,9 +75,16 @@ public class DashboardPage extends BasePage {
         return driver.findElement(accCtrlListItemRoleManagement);
     }
 
-    By dashboardText = By.xpath("//a[contains(@class,'black--text')]");
-    public WebElement dashboardText()
+    By dashboardHomeWebElement = By.xpath("//a[contains(@class,'black--text')]");
+    public WebElement dashboardHomeWebElement()
     {
-        return driver.findElement(dashboardText);
+        return driver.findElement(dashboardHomeWebElement);
     }
+
+    By dashboardHomeText = By.xpath("//a[contains(@class,'black--text')]");
+    public String dashboardHomeText()
+    {
+        return driver.findElement(dashboardHomeText).getText();
+    }
+
 }
