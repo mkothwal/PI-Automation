@@ -40,22 +40,15 @@ public class LoginTest extends BasePage {
             //    log.info("page is down, further execution will be halted");
             return;
         }
-        //  log.info("IAM portal is up and can input Username");
-/*        if(loginpage.elmLogo().isDisplayed()) //inputUsername().isDisplayed())
-        {*/
+
         System.out.println("IAM portal accessed " + driver);
-        // Thread.sleep(3000);
         loginpage.setInputUsername().click();
-        System.out.println("Username textbox clicked " + driver);
+        //System.out.println("Username textbox clicked " + driver);
         loginpage.setInputUsername().sendKeys(username);
-        // log.info("input Username successful");
         loginpage.setInputPassword().sendKeys(password);
-        //System.out.println(outputText);
-        // log.info("input Password successful");
         loginpage.setLoginButton().click();
-        System.out.println("Successfully Logged-in");
+        //System.out.println("Successfully Logged-in");
         Thread.sleep(1000);
-        // }
     }
 
     @DataProvider
@@ -64,18 +57,15 @@ public class LoginTest extends BasePage {
         data[0][0] = "admin@abc.com";
         data[0][1] = "password";
         data[0][2] = "restricted user";
-
         data[1][0] = "admin";
         data[1][1] = "password";
         data[1][2] = "input correct details";
-
         return data;
     }
 
     @AfterTest
     public void closeBrowsers() {
-        System.out.println(driver + " in LoginTest closeBrowser");
-        // System.out.println(windowHandles +" ***  " + driver);
+        //System.out.println(driver + " in LoginTest closeBrowser");
         if(false)
         {
             System.out.println(driver + " trying to closeBrowser");
