@@ -47,24 +47,19 @@ public class BasePage {
             System.setProperty("webdriver.gecko.driver", "C://Dev//Automation//drivers//geckodriver.exe");
             driver = new FirefoxDriver();
         }
-
         driver.manage().window().maximize();
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
-
-
-
     }
 
     @AfterSuite
-    public void closWindowes () {
-        driver.quit();
-        System.out.println(driver + " All the windowesd closed ");
-        //       System.out.println(windowHandles +" ***  " + driver);
-
+    public void closeAnyOpenWindows () {
+        if(driver!=null) {
+            driver.quit();
+            System.out.println(driver + " All the windows closed ");
+            //       System.out.println(windowHandles +" ***  " + driver);
+        }
     }
-
 
     public int getWindowHandlesNumber(){
         return driver.getWindowHandles().size();

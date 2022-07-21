@@ -1,23 +1,28 @@
 package IAM1.Tests;
 
 import IAM1.pageObjects.DashboardPage;
-import IAM1.pageObjects.LoginPage;
 import IAM1.resources.BasePage;
-import io.opentelemetry.exporter.logging.SystemOutLogExporter;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class DashboardTest extends BasePage {
-   // int windowHandles = getWindowHandlesNumber();
-    @BeforeSuite
-    public void navigateToLoginPage() throws IOException, InterruptedException
-    {
+
+    public void navigateToLoginPage() throws IOException, InterruptedException {
+        String dashboardPageUrl = getStringFromPropertiesFile("dashboardPageUrl");
+        String iamLoginPageUrl = getStringFromPropertiesFile("iamLoginPage");
+        if(false){
         driver = initializeDriver();
-        LoginTest.Login();
+            System.out.println("False executed");
+        }
+        String CurrentUrl = driver.getCurrentUrl();
+        System.out.println((CurrentUrl+" "+driver));
+        if (driver.getCurrentUrl().equals(iamLoginPageUrl) || (driver.getCurrentUrl().equals("data:,")) ) {
+            System.out.println("URL Matches");
+            LoginTest.Login();
+            System.out.println("Logged in Successfully");
+        }
         int windowHandles = getWindowHandlesNumber();
         System.out.println(windowHandles);
     }
@@ -25,17 +30,19 @@ public class DashboardTest extends BasePage {
     @Test
     public void Dashboard() throws IOException, InterruptedException {
         DashboardPage dashboardPage = new DashboardPage(driver);
-        String dashboardPageUrl = getStringFromPropertiesFile("dashboardPageUrl");
-        String dashboardText = getStringFromPropertiesFile("dashboardText");
-        String actualTitle = dashboardPage.dashboardText().getText();
-
+        String dashboardPageUrl1 = getStringFromPropertiesFile("dashboardPageUrl");
+        String dashboardExpectedText = getStringFromPropertiesFile("dashboardText");
         try {
-            Assert.assertTrue(dashboardPage.dashboardText().isDisplayed());
+            Assert.assertTrue(dashboardPage.dashboardHomeWebElement().isDisplayed());
             Assert.assertTrue(dashboardPage.setDashboardHomePage().isDisplayed());
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Dashboard page is not the default page");
+            driver = initializeDriver();
+            navigateToLoginPage();
+            Thread.sleep(1000);
         }
-        Assert.assertEquals(actualTitle,dashboardText);
+        String actualTitle = dashboardPage.dashboardHomeText();
+        Assert.assertEquals(actualTitle, dashboardExpectedText);
         Assert.assertTrue(dashboardPage.navigationDrawer().isDisplayed());
         Assert.assertTrue(dashboardPage.DashboardItem().isDisplayed());
         Assert.assertTrue(dashboardPage.profileItem().isDisplayed());
@@ -48,28 +55,13 @@ public class DashboardTest extends BasePage {
         Assert.assertTrue(dashboardPage.accCtrlListItemUsersManagement().isDisplayed());
         Assert.assertTrue(dashboardPage.accCtrlListItemRoleManagement().isDisplayed());
         System.out.println("All assertions completed");
-
     }
 
 
-
-//    @AfterTest
-//    public void closeBrowsers() {
-//        System.out.println(driver + " in Dashboard closeBrowser");
-// //       System.out.println(windowHandles +" ***  " + driver);
-//        driver.close();
-//    }
-
-//    @AfterSuite
-//    public void closeAllBrowsers()
-//    {
-//        System.out.println(driver+" in Dashboard closeAllBrowsers");
-//  //      System.out.println(windowHandles +" ***  " + driver);
-//        try {
-//            driver.close();
-//        }
-//        catch(Exception e) {
-//
-//    }
-//    }
+    @AfterTest
+    public void closeBrowsers() {
+        if(true)
+        System.out.println(driver + " in Dashboard closeBrowser");
+        driver.close();
+    }
 }
