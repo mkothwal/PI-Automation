@@ -14,7 +14,7 @@ public class DashboardTest extends BasePage {
         String iamLoginPageUrl = getStringFromPropertiesFile("iamLoginPage");
         if(false){
         driver = initializeDriver();
-            System.out.println("False executed");
+            //System.out.println("False executed");
         }
         String CurrentUrl = driver.getCurrentUrl();
         //System.out.println((CurrentUrl+" "+driver));
@@ -42,6 +42,7 @@ public class DashboardTest extends BasePage {
             Thread.sleep(1000);
         }
         String actualTitle = dashboardPage.dashboardHomeText();
+        System.out.println("Verifying UI elements in the Dashboard page");
         Assert.assertEquals(actualTitle, dashboardExpectedText);
         Assert.assertTrue(dashboardPage.navigationDrawer().isDisplayed());
         Assert.assertTrue(dashboardPage.DashboardItem().isDisplayed());
@@ -54,7 +55,7 @@ public class DashboardTest extends BasePage {
         Thread.sleep(2000);
         Assert.assertTrue(dashboardPage.accCtrlListItemUsersManagement().isDisplayed());
         Assert.assertTrue(dashboardPage.accCtrlListItemRoleManagement().isDisplayed());
-        System.out.println("All assertions completed");
+        System.out.println("All assertions verified");
     }
 
 
